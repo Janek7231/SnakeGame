@@ -53,6 +53,24 @@ namespace SnakeGame
             gameState = new GameState(rows, cols);
         }
 
+        private async void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGrid.Visibility = Visibility.Collapsed;
+            GameGridContainer.Visibility = Visibility.Visible;
+
+            gameRunning = true;
+            await RunGame();
+            gameRunning = false;
+
+            MenuGrid.Visibility = Visibility.Visible;
+            GameGridContainer.Visibility = Visibility.Collapsed;
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         private async void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (Overlay.Visibility == Visibility.Visible)
@@ -65,6 +83,9 @@ namespace SnakeGame
                 gameRunning = true;
                 await RunGame();
                 gameRunning = false;
+
+                MenuGrid.Visibility = Visibility.Visible;
+                GameGridContainer.Visibility = Visibility.Collapsed;
             }
         }
 
