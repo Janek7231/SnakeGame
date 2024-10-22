@@ -26,9 +26,51 @@
             <Grid x:Name="MenuGrid" Visibility="Visible">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="SNAKE GAME" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <Button x:Name="StartButton" Content="Start Game" FontSize="24" Padding="10" Margin="10" Click="StartButton_Click" Width="168"/>
 
-                    <Button x:Name="StartButton" Content="Start Game" FontSize="24" Padding="10" Margin="10" Click="StartButton_Click"/>
-                    <Button x:Name="ExitButton" Content="Exit Game" FontSize="24" Padding="10" Margin="10" Click="ExitButton_Click"/>
+                    <!-- Zamiast "Level" dodajemy suwak do zmiany prędkości -->
+                    <StackPanel HorizontalAlignment="Center" Margin="10">
+                        <TextBlock Text="Snake Speed" FontSize="24" HorizontalAlignment="Center" />
+                        <Slider x:Name="SpeedSlider" Minimum="1" Maximum="10" Value="5" Width="200" TickFrequency="1" IsSnapToTickEnabled="True" />
+                    </StackPanel>
+
+                    <Button x:Name="MapsButton" Content="Maps" FontSize="24" Padding="10" Margin="10" Click="MapsButton_Click" Width="168"/>
+                    <Button x:Name="OptionsButton" Content="Options" FontSize="24" Padding="10" Margin="10" Click="OptionsButton_Click" Width="168"/>
+                    <Button x:Name="ExitButton" Content="Exit Game" FontSize="24" Padding="10" Margin="10" Click="ExitButton_Click" Width="168"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- MAPS MENU -->
+            <Grid x:Name="MapsMenuGrid" Visibility="Collapsed">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Select Map" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <Button x:Name="Map1Button" Content="Map 1" FontSize="24" Padding="10" Margin="10"/>
+                    <Button x:Name="Map2Button" Content="Map 2" FontSize="24" Padding="10" Margin="10"/>
+                    <Button x:Name="Map3Button" Content="Map 3" FontSize="24" Padding="10" Margin="10"/>
+                    <Button x:Name="BackToMenuFromMapsButton" Content="Back to Menu" FontSize="24" Padding="10" Margin="10" Click="BackToMenuButton_Click"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- OPTIONS MENU -->
+            <Grid x:Name="OptionsMenuGrid" Visibility="Collapsed">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Options" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                    <!-- Opcja ustawienia tematu -->
+                    <StackPanel HorizontalAlignment="Center" Margin="10">
+                        <TextBlock Text="Select Theme" FontSize="24" HorizontalAlignment="Center"/>
+                        <Button x:Name="ClassicThemeButton" Content="Classic" FontSize="24" Padding="10" Margin="10"/>
+                        <Button x:Name="ModernThemeButton" Content="Modern" FontSize="24" Padding="10" Margin="10"/>
+                    </StackPanel>
+
+                    <!-- Opcja ustawienia dźwięku -->
+                    <StackPanel HorizontalAlignment="Center" Margin="10">
+                        <TextBlock Text="Sound Settings" FontSize="24" HorizontalAlignment="Center"/>
+                        <Button x:Name="SoundOnButton" Content="Sound On" FontSize="24" Padding="10" Margin="10"/>
+                        <Button x:Name="SoundOffButton" Content="Sound Off" FontSize="24" Padding="10" Margin="10"/>
+                    </StackPanel>
+
+                    <Button x:Name="BackToMenuFromOptionsButton" Content="Back to Menu" FontSize="24" Padding="10" Margin="10" Click="BackToMenuButton_Click"/>
                 </StackPanel>
             </Grid>
 

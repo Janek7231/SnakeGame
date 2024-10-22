@@ -11,11 +11,10 @@ using System.Windows.Shapes;
 
 namespace SnakeGame
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private GameSettings gameSettings;
+
         private readonly Dictionary<GridValue, ImageSource> gridValToImage = new()
         {
             {GridValue.Empty, Images.Empty },
@@ -41,6 +40,7 @@ namespace SnakeGame
             InitializeComponent();
             gridImages = SetupGrid();
             gameState = new GameState(rows, cols);
+            gameSettings = new GameSettings();
         }
 
         private async Task RunGame()
@@ -58,12 +58,35 @@ namespace SnakeGame
             MenuGrid.Visibility = Visibility.Collapsed;
             GameGridContainer.Visibility = Visibility.Visible;
 
+            double snakeSpeed = SpeedSlider.Value;
+            gameSettings.SnakeSpeed = snakeSpeed;
+
             gameRunning = true;
             await RunGame();
             gameRunning = false;
 
             MenuGrid.Visibility = Visibility.Visible;
             GameGridContainer.Visibility = Visibility.Collapsed;
+        }
+
+        private void MapsButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGrid.Visibility = Visibility.Collapsed;
+            MapsMenuGrid.Visibility = Visibility.Visible;
+        }
+
+        private void OptionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGrid.Visibility = Visibility.Collapsed;
+            OptionsMenuGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BackToMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Pokaż menu główne, ukryj wszystkie podmenu
+            MenuGrid.Visibility = Visibility.Visible;
+            MapsMenuGrid.Visibility = Visibility.Collapsed;
+            OptionsMenuGrid.Visibility = Visibility.Collapsed;
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -113,7 +136,8 @@ namespace SnakeGame
         {
             while (!gameState.GameOver)
             {
-                await Task.Delay(150);
+                int delay = gameSettings.GetDelay();
+                await Task.Delay(delay);
                 gameState.Move();
                 Draw();
             }
