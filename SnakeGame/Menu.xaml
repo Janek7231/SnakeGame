@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="SnakeGame.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SnakeGame">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="SNAKE GAME" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+            <Button x:Name="StartButton" Content="Start Game" FontSize="24" Padding="10" Margin="10" Width="168" Click="StartButton_Click"/>
+
+            <StackPanel HorizontalAlignment="Center" Margin="10">
+                <TextBlock Text="Snake Speed" FontSize="24" HorizontalAlignment="Center" />
+                <Slider x:Name="SpeedSlider" Minimum="1" Maximum="10" Value="5" Width="200" TickFrequency="1" IsSnapToTickEnabled="True"/>
+            </StackPanel>
+
+            <Button x:Name="MapsButton" Content="Maps" FontSize="24" Padding="10" Margin="10" Width="168" Click="MapsButton_Click"/>
+            <Button x:Name="OptionsButton" Content="Options" FontSize="24" Padding="10" Margin="10" Width="168" Click="OptionsButton_Click"/>
+            <Button x:Name="ExitButton" Content="Exit Game" FontSize="24" Padding="10" Margin="10" Width="168" Click="ExitButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
