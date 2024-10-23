@@ -28,15 +28,33 @@
                     <TextBlock Text="SNAKE GAME" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,20"/>
                     <Button x:Name="StartButton" Content="Start Game" FontSize="24" Padding="10" Margin="10" Click="StartButton_Click" Width="168"/>
 
-                    <!-- Zamiast "Level" dodajemy suwak do zmiany prędkości -->
                     <StackPanel HorizontalAlignment="Center" Margin="10">
                         <TextBlock Text="Snake Speed" FontSize="24" HorizontalAlignment="Center" />
                         <Slider x:Name="SpeedSlider" Minimum="1" Maximum="10" Value="5" Width="200" TickFrequency="1" IsSnapToTickEnabled="True" />
+                    </StackPanel>
+                    
+                    <StackPanel HorizontalAlignment="Center" Margin="10">
+                        <TextBlock Text="Grid Rows" FontSize="24" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button x:Name="DecreaseRowsButton" Content="-" FontSize="24" Padding="5" Click="DecreaseRowsButton_Click"/>
+                            <TextBlock x:Name="RowsText" Text="{Binding Rows}" FontSize="24" Margin="10"/>
+                            <Button x:Name="IncreaseRowsButton" Content="+" FontSize="24" Padding="5" Click="IncreaseRowsButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" Margin="10">
+                        <TextBlock Text="Grid Columns" FontSize="24" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button x:Name="DecreaseColsButton" Content="-" FontSize="24" Padding="5" Click="DecreaseColsButton_Click"/>
+                            <TextBlock x:Name="ColsText" Text="{Binding Cols}" FontSize="24" Margin="10"/>
+                            <Button x:Name="IncreaseColsButton" Content="+" FontSize="24" Padding="5" Click="IncreaseColsButton_Click"/>
+                        </StackPanel>
                     </StackPanel>
 
                     <Button x:Name="MapsButton" Content="Maps" FontSize="24" Padding="10" Margin="10" Click="MapsButton_Click" Width="168"/>
                     <Button x:Name="OptionsButton" Content="Options" FontSize="24" Padding="10" Margin="10" Click="OptionsButton_Click" Width="168"/>
                     <Button x:Name="ExitButton" Content="Exit Game" FontSize="24" Padding="10" Margin="10" Click="ExitButton_Click" Width="168"/>
+                    
                 </StackPanel>
             </Grid>
 
