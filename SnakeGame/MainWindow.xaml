@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800"
+        Title="MainWindow" Height="700" Width="1200"
         MinWidth="300" MinHeight="300"
         Background="{StaticResource BackgroundColor}"
         Foreground="{StaticResource TextColor}"
@@ -105,7 +105,7 @@
                            Text="SCORE 0"
                            FontSize="22"
                            Margin="10"
-                           Foreground="White"/>     
+                           Foreground="White"/>
 
                 <Border x:Name="GridBorder"
                 Grid.Row="1"
@@ -118,7 +118,7 @@
                     <UniformGrid x:Name="GameGrid"
                          Width="400"
                          Height="400"
-                         Background="{StaticResource GridBackgroundColor}"
+                         Background="{StaticResource GridBackgroundImage}"
                          SnapsToDevicePixels="True"
                          RenderOptions.BitmapScalingMode="HighQuality">
                     </UniformGrid>

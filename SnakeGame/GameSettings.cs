@@ -34,7 +34,7 @@
         {
             // Domyslne parametry
             SnakeSpeed = 5;
-            Cols = 10;
+            Cols = 18;
             Rows = 10;
         }
 

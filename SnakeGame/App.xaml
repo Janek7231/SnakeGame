@@ -10,5 +10,6 @@
         <SolidColorBrush x:Key="TextColor">#FFF1EB</SolidColorBrush>
         <SolidColorBrush x:Key="OverlayColor">#7F000000</SolidColorBrush>
         <FontFamily x:Key="MainFont">Assets/#Droid Sans Mono</FontFamily>
+        <ImageBrush x:Key="GridBackgroundImage" ImageSource="Assets/GridBackground.png" Stretch="UniformToFill"/>
     </Application.Resources>
 </Application>
