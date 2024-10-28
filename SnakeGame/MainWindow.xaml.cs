@@ -30,27 +30,33 @@ namespace SnakeGame
             {Direction.Left, 270 },
         };
 
-        private readonly int rows = 10, cols = 18;
-        private readonly Image[,] gridImages;
+        private int rows = 15, cols = 15;
+        private Image[,] gridImages;
         private GameState gameState;
         private bool gameRunning;
 
         public MainWindow()
         {
             InitializeComponent();
-            gridImages = SetupGrid();
-            gameState = new GameState(rows, cols);
             gameSettings = new GameSettings();
+            gridImages = SetupGrid();
+            gameState = new GameState(gameSettings.Rows, gameSettings.Cols);
+            RowsText.Text = gameSettings.Rows.ToString();
+            ColsText.Text = gameSettings.Cols.ToString();
         }
 
         private async Task RunGame()
         {
+            rows = gameSettings.Rows;
+            cols = gameSettings.Cols;
+
+            ResetGrid();
+            gameState = new GameState(gameSettings.Rows, gameSettings.Cols);
             Draw();
             await ShowCountDown();
             Overlay.Visibility = Visibility.Hidden;
             await GameLoop();
             await ShowGameOver();
-            gameState = new GameState(rows, cols);
         }
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
@@ -69,6 +75,35 @@ namespace SnakeGame
             GameGridContainer.Visibility = Visibility.Collapsed;
         }
 
+        private void IncreaseRowsButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameSettings.Rows++;
+            RowsText.Text = gameSettings.Rows.ToString();
+            UpdateGrid();
+        }
+
+        private void DecreaseRowsButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameSettings.Rows--;
+            RowsText.Text = gameSettings.Rows.ToString();
+            UpdateGrid();
+        }
+
+        private void IncreaseColsButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameSettings.Cols++;
+            ColsText.Text = gameSettings.Cols.ToString();
+            UpdateGrid();
+        }
+
+        private void DecreaseColsButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameSettings.Cols--;
+            ColsText.Text = gameSettings.Cols.ToString();
+            UpdateGrid();
+        }
+
+
         private void MapsButton_Click(object sender, RoutedEventArgs e)
         {
             MenuGrid.Visibility = Visibility.Collapsed;
@@ -83,7 +118,6 @@ namespace SnakeGame
 
         private void BackToMenuButton_Click(object sender, RoutedEventArgs e)
         {
-            // Pokaż menu główne, ukryj wszystkie podmenu
             MenuGrid.Visibility = Visibility.Visible;
             MapsMenuGrid.Visibility = Visibility.Collapsed;
             OptionsMenuGrid.Visibility = Visibility.Collapsed;
@@ -145,6 +179,9 @@ namespace SnakeGame
 
         private Image[,] SetupGrid()
         {
+            rows = gameSettings.Rows;
+            cols = gameSettings.Cols;
+
             Image[,] images = new Image[rows, cols];
             GameGrid.Rows = rows;
             GameGrid.Columns = cols;
@@ -171,6 +208,11 @@ namespace SnakeGame
         {
             DrawGrid();
             DrawSnakeHead();
+            UpdateScore();
+        }
+
+        private void UpdateScore()
+        {
             ScoreText.Text = $"SCORE {gameState.Score}";
         }
 
@@ -186,6 +228,24 @@ namespace SnakeGame
 
                 }
             }
+        }
+
+        private void ResetGrid()
+        {
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    gridImages[r, c].Source = Images.Empty;
+                    gridImages[r, c].RenderTransform = Transform.Identity;
+                }
+            }
+        }
+
+        private void UpdateGrid()
+        {
+            GameGrid.Children.Clear();
+            gridImages = SetupGrid();
         }
 
         private void DrawSnakeHead()

@@ -3,6 +3,8 @@
     public class GameSettings
     {
         private double snakeSpeed;
+        private int cols;
+        private int rows;
 
         public double SnakeSpeed
         {
@@ -15,12 +17,28 @@
             }
         }
 
-        public GameSettings()
+        public int Cols
         {
-            SnakeSpeed = 5; // Domyślna prędkość
+            get => cols;
+            set => cols = Math.Clamp(value, 10, 30); // min 10, max 30
         }
 
-        // Funkcja zwracająca odpowiednie opóźnienie w zależności od prędkości węża
+        public int Rows
+        {
+            get => rows;
+            set => rows = Math.Clamp(value, 10, 30);
+        }
+
+
+        public GameSettings()
+        {
+            // Domyslne parametry
+            SnakeSpeed = 5;
+            Cols = 10;
+            Rows = 10;
+        }
+
+        
         public int GetDelay()
         {
             int baseDelay = 300; // Bazowy delay dla najwolniejszej prędkości
