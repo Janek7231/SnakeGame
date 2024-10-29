@@ -21,50 +21,76 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
             <!-- MENU GRID -->
-            <Grid x:Name="MenuGrid" Visibility="Visible">
+            <Grid Grid.Column="0" x:Name="MenuGrid" Visibility="Visible" HorizontalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="SNAKE GAME" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                    <Button x:Name="StartButton" Content="Start Game" FontSize="24" Padding="10" Margin="10" Click="StartButton_Click" Width="168"/>
+                    <!-- Napis SNAKE -->
+                    <TextBlock Text="SNAKE GAME" FontSize="60" HorizontalAlignment="Center" Margin="0,20,0,10"/>
 
-                    <StackPanel HorizontalAlignment="Center" Margin="10">
-                        <TextBlock Text="Snake Speed" FontSize="24" HorizontalAlignment="Center" />
-                        <Slider x:Name="SpeedSlider" Minimum="1" Maximum="10" Value="5" Width="200" TickFrequency="1" IsSnapToTickEnabled="True" />
+                    <!-- Przycisk Start -->
+                    <Button x:Name="StartButton" Content="Start Game" FontSize="20" Padding="5" Margin="5" Click="StartButton_Click" Width="168"/>
+
+                    <!-- Nowy Przycisk 2 Players -->
+                    <Button x:Name="TwoPlayersButton" Content="2 Players" FontSize="20" Padding="5" Margin="5" Width="168"/>
+
+                    <!-- Suwak prędkości węża -->
+                    <StackPanel HorizontalAlignment="Center" Margin="5">
+                        <TextBlock Text="Snake Speed" FontSize="20" HorizontalAlignment="Center" />
+                        <Slider x:Name="SpeedSlider" Minimum="1" Maximum="10" Value="5" Width="180" TickFrequency="1" IsSnapToTickEnabled="True" />
                     </StackPanel>
 
-                    <StackPanel HorizontalAlignment="Center" Margin="10">
-                        <TextBlock Text="Grid Rows" FontSize="24" HorizontalAlignment="Center"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="DecreaseRowsButton" Content="-" FontSize="24" Padding="5" Click="DecreaseRowsButton_Click" Width="50" Height="41"/>
-                            <TextBlock x:Name="RowsText" Text="{Binding Rows}" FontSize="24" Margin="10"/>
-                            <Button x:Name="IncreaseRowsButton" Content="+" FontSize="24" Padding="5" Click="IncreaseRowsButton_Click" Width="50" Height="41"/>
+                    <!-- Ustawienia kolumn i wierszy w jednym rzędzie -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <!-- Wiersze -->
+                        <StackPanel Margin="0,0,20,30">
+                            <TextBlock Text="Rows" FontSize="20" HorizontalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="DecreaseRowsButton" Content="-" FontSize="20" Padding="0" Click="DecreaseRowsButton_Click" Width="30" Height="25"/>
+                                <TextBlock x:Name="RowsText" Text="{Binding Rows}" FontSize="24" Margin="5"/>
+                                <Button x:Name="IncreaseRowsButton" Content="+" FontSize="20" Padding="0" Click="IncreaseRowsButton_Click" Width="30" Height="25"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!-- Kolumny -->
+                        <StackPanel>
+                            <TextBlock Text="Columns" FontSize="20" HorizontalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="DecreaseColsButton" Content="-" FontSize="20" Padding="0" Click="DecreaseColsButton_Click" Width="30" Height="25"/>
+                                <TextBlock x:Name="ColsText" Text="{Binding Cols}" FontSize="24" Margin="5"/>
+                                <Button x:Name="IncreaseColsButton" Content="+" FontSize="20" Padding="0" Click="IncreaseColsButton_Click" Width="30" Height="25"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-
-                    <StackPanel HorizontalAlignment="Center" Margin="10">
-                        <TextBlock Text="Grid Columns" FontSize="24" HorizontalAlignment="Center"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="DecreaseColsButton" Content="-" FontSize="24" Padding="5" Click="DecreaseColsButton_Click" Width="50" Height="41"/>
-                            <TextBlock x:Name="ColsText" Text="{Binding Cols}" FontSize="24" Margin="10"/>
-                            <Button x:Name="IncreaseColsButton" Content="+" FontSize="24" Padding="5" Click="IncreaseColsButton_Click" Width="50" Height="41"/>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <Button x:Name="MapsButton" Content="Maps" FontSize="24" Padding="10" Margin="10" Click="MapsButton_Click" Width="168"/>
-                    <Button x:Name="OptionsButton" Content="Options" FontSize="24" Padding="10" Margin="10" Click="OptionsButton_Click" Width="168"/>
-                    <Button x:Name="ExitButton" Content="Exit Game" FontSize="24" Padding="10" Margin="10" Click="ExitButton_Click" Width="168"/>
-
                 </StackPanel>
             </Grid>
+            <Grid Grid.Column="1" x:Name="MenuGrid1" Visibility="Visible" HorizontalAlignment="Center">
+            <!-- PRAWY PANEL OPCJI -->
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40,50,0,00">
+                <!-- Tabela wyników -->
+                <TextBlock Text="Scoreboard" FontSize="20" HorizontalAlignment="Center" Margin="5"/>
+                <!-- Przykładowe wyniki -->
+                <TextBlock Text="Player 1: 100" FontSize="14" HorizontalAlignment="Center" Margin="1"/>
+                <TextBlock Text="Player 2: 80" FontSize="14" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <Button x:Name="MapsButton" Content="Maps" FontSize="20" Padding="5" Margin="5" Click="MapsButton_Click" Width="168"/>
+                <Button x:Name="OptionsButton" Content="Options" FontSize="20" Padding="5" Margin="5" Click="OptionsButton_Click" Width="168"/>
+                <Button x:Name="ExitButton" Content="Exit Game" FontSize="20" Padding="5" Margin="5" Click="ExitButton_Click" Width="168"/>
+            </StackPanel>
+            </Grid>
+
 
             <!-- MAPS MENU -->
             <Grid x:Name="MapsMenuGrid" Visibility="Collapsed">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="Select Map" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                    <Button x:Name="Map1Button" Content="Map 1" FontSize="24" Padding="10" Margin="10"/>
-                    <Button x:Name="Map2Button" Content="Map 2" FontSize="24" Padding="10" Margin="10"/>
-                    <Button x:Name="Map3Button" Content="Map 3" FontSize="24" Padding="10" Margin="10"/>
+                    <Button x:Name="Map1Button" Content="Map 1" FontSize="20" Padding="10" Margin="10"/>
+                    <Button x:Name="Map2Button" Content="Map 2" FontSize="20" Padding="10" Margin="10"/>
+                    <Button x:Name="Map3Button" Content="Map 3" FontSize="20" Padding="10" Margin="10"/>
                     <Button x:Name="BackToMenuFromMapsButton" Content="Back to Menu" FontSize="24" Padding="10" Margin="10" Click="BackToMenuButton_Click"/>
                 </StackPanel>
             </Grid>

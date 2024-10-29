@@ -10,26 +10,38 @@
 
   <ItemGroup>
     <None Remove="Assets\Body.png" />
+    <None Remove="Assets\Chewy.ttf" />
+    <None Remove="Assets\computer_7.ttf" />
     <None Remove="Assets\DeadBody.png" />
     <None Remove="Assets\DeadHead.png" />
     <None Remove="Assets\DroidSansMono.ttf" />
+    <None Remove="Assets\EastDjakartaFont.ttf" />
     <None Remove="Assets\Empty.png" />
     <None Remove="Assets\Food.png" />
+    <None Remove="Assets\gitchgitch.ttf" />
     <None Remove="Assets\GridBackground.png" />
     <None Remove="Assets\Head.png" />
     <None Remove="Assets\icon.ico" />
+    <None Remove="Assets\Skinny Tumbler.otf" />
+    <None Remove="Assets\Spooky Vintage.otf" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\Body.png" />
+    <Resource Include="Assets\Chewy.ttf" />
+    <Resource Include="Assets\computer_7.ttf" />
     <Resource Include="Assets\DeadBody.png" />
     <Resource Include="Assets\DeadHead.png" />
     <Resource Include="Assets\DroidSansMono.ttf" />
+    <Resource Include="Assets\EastDjakartaFont.ttf" />
     <Resource Include="Assets\Empty.png" />
     <Resource Include="Assets\Food.png" />
+    <Resource Include="Assets\gitchgitch.ttf" />
     <Resource Include="Assets\GridBackground.png" />
     <Resource Include="Assets\Head.png" />
     <Resource Include="Assets\icon.ico" />
+    <Resource Include="Assets\Skinny Tumbler.otf" />
+    <Resource Include="Assets\Spooky Vintage.otf" />
   </ItemGroup>
 
 </Project>

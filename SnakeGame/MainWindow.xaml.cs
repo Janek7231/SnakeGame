@@ -62,6 +62,7 @@ namespace SnakeGame
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
             MenuGrid.Visibility = Visibility.Collapsed;
+            MenuGrid1.Visibility = Visibility.Collapsed;
             GameGridContainer.Visibility = Visibility.Visible;
 
             double snakeSpeed = SpeedSlider.Value;
@@ -72,6 +73,7 @@ namespace SnakeGame
             gameRunning = false;
 
             MenuGrid.Visibility = Visibility.Visible;
+            MenuGrid1.Visibility = Visibility.Visible;
             GameGridContainer.Visibility = Visibility.Collapsed;
         }
 
@@ -107,18 +109,21 @@ namespace SnakeGame
         private void MapsButton_Click(object sender, RoutedEventArgs e)
         {
             MenuGrid.Visibility = Visibility.Collapsed;
+            MenuGrid1.Visibility = Visibility.Collapsed;
             MapsMenuGrid.Visibility = Visibility.Visible;
         }
 
         private void OptionsButton_Click(object sender, RoutedEventArgs e)
         {
             MenuGrid.Visibility = Visibility.Collapsed;
+            MenuGrid1.Visibility = Visibility.Collapsed;
             OptionsMenuGrid.Visibility = Visibility.Visible;
         }
 
         private void BackToMenuButton_Click(object sender, RoutedEventArgs e)
         {
             MenuGrid.Visibility = Visibility.Visible;
+            MenuGrid1.Visibility = Visibility.Visible;
             MapsMenuGrid.Visibility = Visibility.Collapsed;
             OptionsMenuGrid.Visibility = Visibility.Collapsed;
         }
