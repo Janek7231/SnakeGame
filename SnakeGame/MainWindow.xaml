@@ -36,7 +36,7 @@
                     <Button x:Name="StartButton" Content="Start Game" FontSize="20" Padding="5" Margin="5" Click="StartButton_Click" Width="168"/>
 
                     <!-- Nowy Przycisk 2 Players -->
-                    <Button x:Name="TwoPlayersButton" Content="2 Players" FontSize="20" Padding="5" Margin="5" Width="168"/>
+                    <Button x:Name="TwoPlayersButton" Content="2 Players" FontSize="20" Padding="5" Margin="5" Click="TwoPlayersButton_Click" Width="168"/>
 
                     <!-- Suwak prędkości węża -->
                     <StackPanel HorizontalAlignment="Center" Margin="5">

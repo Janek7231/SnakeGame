@@ -77,6 +77,24 @@ namespace SnakeGame
             GameGridContainer.Visibility = Visibility.Collapsed;
         }
 
+        private async void TwoPlayersButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGrid.Visibility = Visibility.Collapsed;
+            MenuGrid1.Visibility = Visibility.Collapsed;
+            GameGridContainer.Visibility = Visibility.Visible;
+
+            double snakeSpeed = SpeedSlider.Value;
+            gameSettings.SnakeSpeed = snakeSpeed;
+
+            gameRunning = true;
+            await RunGame();
+            gameRunning = false;
+
+            MenuGrid.Visibility = Visibility.Visible;
+            MenuGrid1.Visibility = Visibility.Visible;
+            GameGridContainer.Visibility = Visibility.Collapsed;
+        }
+
         private void IncreaseRowsButton_Click(object sender, RoutedEventArgs e)
         {
             gameSettings.Rows++;
